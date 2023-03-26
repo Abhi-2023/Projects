@@ -25,17 +25,17 @@ public class Project2 {
             this.customerID = customerID;
         }
         void deposit(double amt){
-            if(amt > 0){
+            if(amt != 0){
                 bal += amt;
                 prevtrans = amt;
             }
         }
         void withdraw (double amt){
-            if(amt> 0 && bal >=amt){
-                bal -=amt;
-                prevtrans=- amt;
+            if(amt!=0 && bal >=amt){
+                bal -= amt;
+                prevtrans=-amt;
             }
-            else {
+            else if (bal < amt) {
                 System.out.println("Balance is insufficient to withdraw this amount.");
             }
         }
@@ -82,6 +82,7 @@ public class Project2 {
                     System.out.println("......................");
                     System.out.println("Enter amount to withdraw.");
                     double amtW = sc.nextDouble();
+                    withdraw(amtW);
                     break;
                     case 'd':
                     System.out.println("......................");
@@ -90,6 +91,7 @@ public class Project2 {
                     break;
                     case 'e' :
                     System.out.println("Thank you to use our system.");
+                    break;
                     default:
                     System.out.println("Please enter correct option.");
                 }
